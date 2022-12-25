@@ -6,9 +6,7 @@ console.log(cartas);
         console.log(carta);
         return <li className="list"key={index}>         {/* Item List */}
             <div className="card">
-                <p>
-                    {carta.id}
-                </p>
+                {carta.id}
                 <img alt="card" src={carta.card_images[0].image_url_small} />
             </div>
         </li>;
@@ -16,7 +14,6 @@ console.log(cartas);
 
     return (
         <div>
-            <h1 className="title">cartas</h1>
             <div>
                 <ul className="grid">                        {/* Unsorted List */}
                     {listacartas}
