@@ -35,7 +35,7 @@ export default function App() {
       const response = await fetch(url); // Creo response. Es una respuesta a la url que ingresamos. await (se espera hasta que) fetch (se recupere un recurso de la red) (el url de la red)
       const {data} = await response.json(); // Se asigna la info acomodada al vector data
       console.log(data);                    // Se muestra la información que contiene data en la consola
-      if (data==undefined) {
+      if (data===undefined) {
         alert("incompatible search");
         return;   
       }
@@ -145,23 +145,7 @@ export default function App() {
         </select>
         <input placeholder="Atk" type="text" size={4} maxLength="6" name="atk" onChange={(event) => setAtk(space(event.target.value,3))}/>
         <input placeholder="Def" type="text" size={4} maxLength="6" name="def" onChange={(event) => setDef(space(event.target.value,4))}/>
-        <select type="text" name="level" onChange={(event) => setLevel(space(event.target.value,5))}>
-          <option value="" selected>-Select Card Level-</option>
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="11">11</option>
-          <option value="12">12</option>
-          <option value="13">13</option>
-        </select>
+        <input placeholder="Level" type="text" size={2} maxLength="2" name="level" onChange={(event) => setLevel(space(event.target.value,5))}/>
         <select type="text" name="race" onChange={(event) => setRace(space(event.target.value,6))}>
           <option value="" selected>-Select Card Race-</option>
           <option value="continuous">continuous</option>
@@ -213,11 +197,40 @@ export default function App() {
           <option value="wind">wind</option>
           <option value="divine">divine</option>
         </select>
+        <input placeholder="Link" type="text" size={2} maxLength="2" name="link" onChange={(event) => setLink(space(event.target.value,8))}/>
+        <select type="text" name="linkmarker" onChange={(event) => setLinkmarker(space(event.target.value,9))}>
+          <option value="" selected>-Select Card Linkmarker-</option>
+          <option value="Top">Top</option>
+          <option value="Bottom">Bottom</option>
+          <option value="Left">Left</option>
+          <option value="Right">Right</option>
+          <option value="Bottom-Left">Bottom Left</option>
+          <option value="Bottom-Right">Bottom Right</option>
+          <option value="Top-Left">Top-Left</option>
+          <option value="Top-Right">Top-Right</option>
+        </select>
+        <input placeholder="Scale" type="text" size={2} maxLength="2" name="scale" onChange={(event) => setScale(space(event.target.value,10))}/>
+        <input placeholder="Card Set" type="text" size={10} maxLength="50" name="cardset" onChange={(event) => setCardset(space(event.target.value,11))}/>
+        <input placeholder="Archetype" type="text" size={10} maxLength="50" name="archetype" onChange={(event) => setArchetype(space(event.target.value,12))}/>
+        <select type="text" name="banlist" onChange={(event) => setBanlist(space(event.target.value,13))}>
+          <option value="" selected>-No Ban-</option>
+          <option value="tcg">TCG</option>
+          <option value="ocg">OCG</option>
+          <option value="goat">GOAT</option>
+        </select>
+
+
+
         <button onClick={()=> getAllCards(Name,Id,Type,Atk,Def,Level,Race,Attribute,Link,Linkmarker,Scale,Cardset,Archetype,Banlist,25,0)}>
           <img weight="12px" height="12px"alt="lupa" src={lupa}/>
         </button>
 
       </div>
+      {/* ORDENADOR */}
+      <div>
+      
+      </div>
+
       {/* LISTA DE CARTAS */}
       <div>
         { cards.length>0 ? <YugiohCard cartas={cards}/> : null}
