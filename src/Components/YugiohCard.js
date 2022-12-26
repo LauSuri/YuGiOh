@@ -6,7 +6,6 @@ console.log(cartas);
         console.log(carta);
         return <li className="list"key={index}>         {/* Item List */}
             <div className="card">
-                {carta.id}
                 <img alt="card" src={carta.card_images[0].image_url_small} />
             </div>
         </li>;
